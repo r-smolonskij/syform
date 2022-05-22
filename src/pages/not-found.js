@@ -2,12 +2,11 @@ import { Fragment } from "react";
 import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
 import { HeaderOne, HeaderTwo } from "../components/Header";
+import { LayoutTwo } from "../components/Layout";
 
 const NotFound = () => {
   return (
-    <Fragment>
-      <HeaderOne />
-
+    <LayoutTwo>
       <Container>
         <Row>
           <Col lg={12}>
@@ -24,7 +23,7 @@ const NotFound = () => {
           </Col>
         </Row>
       </Container>
-    </Fragment>
+    </LayoutTwo>
   );
 };
 
