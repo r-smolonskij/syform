@@ -1,5 +1,8 @@
 import { useEffect } from "react";
 import Link from "next/link";
+import {
+  IoIosCart
+} from "react-icons/io";
 
 const MobileMenuNav = ({ getActiveStatus }) => {
   useEffect(() => {
@@ -66,6 +69,11 @@ const MobileMenuNav = ({ getActiveStatus }) => {
         <li className="menu-item-has-children">
           <Link href="/apmaksa-piegade" as={process.env.PUBLIC_URL + "/apmaksa-piegade"}>
             <a>Apmaksa/Piegāde</a>
+          </Link>
+        </li>
+        <li className="menu-item-has-children">
+          <Link href="/grozs" as={process.env.PUBLIC_URL + "/grozs"}>
+            <a>Grozs <IoIosCart /> </a>
           </Link>
         </li>
       </ul>

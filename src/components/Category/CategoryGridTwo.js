@@ -14,9 +14,9 @@ const CategoryGridTwo = ({ spaceBottomClass, categories }) => {
               if (index % 2 == 0) {
                 return <Col lg={4} md={6}>
                   <div className="single-category single-category--one" >
-                    <div className="single-category__content single-category__content--one space-mt--25 space-mb--25">
+                    <div className="single-category__content single-category__content--one space-mt--25 space-mb--25 d-none d-lg-block">
                       <div className="title">
-                        <p>{category.name}</p>
+                        <p><b>{category.name}</b></p>
                         <Link
                           href={`/veikals?kategorija=${category.id}`}
                           as={process.env.PUBLIC_URL + `/veikals?kategorija=${category.id}`}
@@ -24,7 +24,6 @@ const CategoryGridTwo = ({ spaceBottomClass, categories }) => {
                           <a>+ Iepirkties</a>
                         </Link>
                       </div>
-                      <p className="product-count">{index + 1}</p>
                     </div>
 
                     <div className="single-category__image single-category__image--one">
@@ -34,7 +33,18 @@ const CategoryGridTwo = ({ spaceBottomClass, categories }) => {
                         alt={category.name}
                       />
                     </div>
+                    <div className="single-category__content single-category__content--one space-mt--25 space-mb--25 d-block d-lg-none">
+                      <div className="title">
+                        <p><b>{category.name}</b></p>
+                        <Link
+                          href={`/veikals?kategorija=${category.id}`}
+                          as={process.env.PUBLIC_URL + `/veikals?kategorija=${category.id}`}
+                        >
+                          <a>+ Iepirkties</a>
+                        </Link>
+                      </div>
 
+                    </div>
                     <Link
                       href={`/veikals?kategorija=${category.id}`}
                       as={process.env.PUBLIC_URL + `/veikals?kategorija=${category.id}`}
@@ -55,7 +65,7 @@ const CategoryGridTwo = ({ spaceBottomClass, categories }) => {
                     </div>
                     <div className="single-category__content single-category__content--one space-mt--25 space-mb--25">
                       <div className="title">
-                        <p>{category.name}</p>
+                        <p><b>{category.name}</b></p>
                         <Link
                           href={`/veikals?kategorija=${category.id}`}
                           as={process.env.PUBLIC_URL + `/veikals?kategorija=${category.id}`}
@@ -63,7 +73,7 @@ const CategoryGridTwo = ({ spaceBottomClass, categories }) => {
                           <a>+ Iepirkties</a>
                         </Link>
                       </div>
-                      <p className="product-count">{index + 1}</p>
+
                     </div>
                     <Link
                       href={`/veikals?kategorija=${category.id}`}

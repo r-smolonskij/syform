@@ -43,17 +43,24 @@ const ShopSidebar = ({ categories, getSortParams }) => {
         )}
       </div>
       {
-        categories.length > 0 && <div className="d-block d-lg-none text-center mb-5">
+        categories.length > 0 && <div className="d-block d-lg-none text-center mb-5 px-5">
           <h2 className="single-sidebar-widget__title space-mb--30">
             Kategorijas
           </h2>
           <Row>
+
+            <button
+              className={`lezada-button lezada-button--small mb-3`}
+              onClick={() => { getSortParams("all"); setActiveCategory("all") }}
+            >
+              <p>Visas kategorijas</p>
+            </button>
             {
               categories.map((category, i) => {
                 return (
-                  <Col key={i} xs={3} >
+                  <Col key={i} xs={4} >
                     <button
-                      className={` ${isActiveCategory(category.id) ? "lezada-button--active" : "lezada-button"} lezada-button--small mb-3`}
+                      className={`lezada-button lezada-button--small mb-3`}
                       onClick={() => { getSortParams(category.id); setActiveCategory(category.id) }}
                     >
                       {category.name}
