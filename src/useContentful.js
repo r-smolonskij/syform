@@ -1,4 +1,5 @@
 import { createClient } from 'contentful'
+import _ from 'lodash'
 const useContentful = () => {
 
     const client = createClient({
@@ -57,7 +58,29 @@ const useContentful = () => {
         }
     };
 
-    return { getProducts, getCategories }
+    const getSettings = async () => {
+        try {
+            const entries = await client.getEntries({
+                content_type: "siteInfo",
+                select: "fields"
+            })
+            const settingsObject = _.head(entries.items);
+            const entryFields = settingsObject.fields;
+            const sliderPhotos = _.map(entryFields.homeSliderPhotos, item => item.fields.file.url);
+            const sanitizedObject = {
+                footerLogo: entryFields.footerLogo.fields.file.url || null,
+                headerLogo: entryFields.headerLogo.fields.file.url || null,
+                deliveryAndPayment: entryFields.deliveryAndPayment || null,
+                homeSliderPhotos: sliderPhotos || [],
+                homePageInfoText: entryFields.homePageInfoText || null,
+            }
+            return sanitizedObject;
+        } catch (error) {
+            confirm.error(`Error fetching settings: ${error}`)
+        }
+    };
+
+    return { getProducts, getCategories, getSettings }
 }
 
 export default useContentful

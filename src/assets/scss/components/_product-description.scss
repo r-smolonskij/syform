@@ -283,6 +283,12 @@
 /* product description tab */
 
 .htmlContent {
+  p {
+    white-space: pre-wrap;
+  }
+  h1,h2{
+    text-align: center;
+  }
   table{
     margin-top: 50px;
     text-align: center;

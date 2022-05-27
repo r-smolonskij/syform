@@ -15,26 +15,13 @@ const ProductImage = ({
 
                 <Col xl={10} className="order-1">
                     <div className="product-large-image-wrapper">
-                        <LightgalleryProvider>
-                            <div>
-
-                                <LightgalleryItem
-                                    group="any"
-                                    src={product.image}
-                                >
-                                    <button className="enlarge-icon">
-                                        <IoMdExpand />
-                                    </button>
-                                </LightgalleryItem>
-                                <div className="single-image">
-                                    <img
-                                        src={product.image}
-                                        className="img-fluid"
-                                        alt=""
-                                    />
-                                </div>
-                            </div>
-                        </LightgalleryProvider>
+                        <div className="single-image">
+                            <img
+                                src={product.image}
+                                className="img-fluid"
+                                alt=""
+                            />
+                        </div>
                     </div>
                 </Col>
             </Row>

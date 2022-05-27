@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { IoIosArrowRoundUp } from "react-icons/io";
+import { connect } from "react-redux";
 import { animateScroll } from "react-scroll";
 
-const FooterTwo = ({ footerBgClass }) => {
+const FooterTwo = ({ settings }) => {
   const [scroll, setScroll] = useState(0);
   const [top, setTop] = useState(0);
 
@@ -24,8 +25,7 @@ const FooterTwo = ({ footerBgClass }) => {
   };
   return (
     <footer
-      className={`space-pt--50 space-pb--50 ${footerBgClass ? footerBgClass : "bg-color--grey"
-        }`}
+      className={`space-pt--50 space-pb--50 bg-color--grey`}
     >
       <Container className="wide">
         <Row>
@@ -34,12 +34,8 @@ const FooterTwo = ({ footerBgClass }) => {
             <div className="logo space-mb--35">
               <a href="/">
                 <img
-                  src={
-                    process.env.PUBLIC_URL + footerBgClass ===
-                      "bg-color--blue-two"
-                      ? "/assets/images/logo-alt.png"
-                      : "/assets/images/logo.png"
-                  }
+                  // src={"/assets/images/logo.png"}
+                  src={settings.footerLogo}
                   className="img-fluid"
                   alt=""
                 />
@@ -64,4 +60,10 @@ const FooterTwo = ({ footerBgClass }) => {
   );
 };
 
-export default FooterTwo;
+const mapStateToProps = (state) => {
+  return {
+    settings: state.settingsData
+  };
+};
+
+export default connect(mapStateToProps)(FooterTwo);

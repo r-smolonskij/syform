@@ -12,6 +12,7 @@ import "../assets/scss/styles.scss";
 import Preloader from "../components/Preloader";
 import useContentful from "../useContentful";
 import fetchCategories from "../redux/actions/categoryActions";
+import fetchSettings from "../redux/actions/settingsActions";
 
 class MyApp extends App {
 
@@ -19,10 +20,10 @@ class MyApp extends App {
     super(props);
     this.persistor = persistStore(props.reduxStore);
     //loading products 
-    const { getProducts, getCategories } = useContentful();
+    const { getProducts, getCategories, getSettings } = useContentful();
     getCategories().then((response) => { props.reduxStore.dispatch(fetchCategories(response)); });
     getProducts().then((response) => { props.reduxStore.dispatch(fetchProducts(response)); });
-
+    getSettings().then((response) => { props.reduxStore.dispatch(fetchSettings(response)); });
 
   }
 

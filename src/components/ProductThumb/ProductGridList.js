@@ -7,19 +7,8 @@ import ProductModal from "./ProductModal";
 
 const ProductGridList = ({
   product,
-  discountedPrice,
   productPrice,
-  cartItem,
-  wishlistItem,
-  compareItem,
   bottomSpace,
-  addToCart,
-  addToWishlist,
-  deleteFromWishlist,
-  addToCompare,
-  deleteFromCompare,
-  addToast,
-  cartItems
 }) => {
   const [modalShow, setModalShow] = useState(false);
 
@@ -42,11 +31,6 @@ const ProductGridList = ({
 
               </a>
             </Link>
-            <div className="product-grid__floating-icons">
-              <button>
-                <IoIosCart />
-              </button>
-            </div>
           </div>
 
           {/*=======  single product content  =======*/}

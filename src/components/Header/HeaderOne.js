@@ -12,7 +12,7 @@ import CartOverlay from "./elements/CartOverlay";
 import MobileMenu from "./elements/MobileMenu";
 import CustomNavigation from "./elements/CustomNavigation";
 
-const HeaderOne = ({ aboutOverlay, cartItems, wishlistItems }) => {
+const HeaderOne = ({ aboutOverlay, cartItems, settings }) => {
   const [scroll, setScroll] = useState(0);
   const [headerTop, setHeaderTop] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -53,10 +53,10 @@ const HeaderOne = ({ aboutOverlay, cartItems, wishlistItems }) => {
               <Link href="/" as={process.env.PUBLIC_URL + "/"}>
                 <a>
                   <img
-                    src={process.env.PUBLIC_URL + "/assets/images/logo.png"}
+                    src={settings.headerLogo}
+                    // src={process.env.PUBLIC_URL + "/assets/images/logo.png"}
                     className="img-fluid"
                     alt=""
-                    width={200}
                   />
                 </a>
               </Link>
@@ -150,7 +150,8 @@ const HeaderOne = ({ aboutOverlay, cartItems, wishlistItems }) => {
 const mapStateToProps = (state) => {
   return {
     cartItems: state.cartData,
-    wishlistItems: state.wishlistData
+    wishlistItems: state.wishlistData,
+    settings: state.settingsData
   };
 };
 

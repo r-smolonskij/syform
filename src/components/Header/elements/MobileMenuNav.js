@@ -62,11 +62,6 @@ const MobileMenuNav = ({ getActiveStatus }) => {
           </Link>
         </li>
         <li className="menu-item-has-children">
-          <Link href="/par-mums" as={process.env.PUBLIC_URL + "/par-mums"}>
-            <a>Par mums</a>
-          </Link>
-        </li>
-        <li className="menu-item-has-children">
           <Link href="/apmaksa-piegade" as={process.env.PUBLIC_URL + "/apmaksa-piegade"}>
             <a>Apmaksa/Piegāde</a>
           </Link>

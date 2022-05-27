@@ -4,22 +4,30 @@ import { LayoutTwo } from "../components/Layout";
 import { HeroSliderOne } from "../components/HeroSlider";
 import { ProductTab } from "../components/ProductTab";
 import heroSliderData from "../data/hero-sliders/hero-slider-one.json";
+import { Container, Row, Col } from "react-bootstrap";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
 
-const Home = ({ products }) => {
+const Home = ({ settings }) => {
   return (
     <LayoutTwo aboutOverlay={false}>
       {/* hero slider */}
-      <HeroSliderOne sliderData={heroSliderData} />
-
+      <HeroSliderOne sliderData={settings.homeSliderPhotos} />
+      <Container>
+        <Row>
+          <Col lg={10} className="ml-auto mr-auto pb-5 mb-5 mt-5 text-center">
+            <div className="htmlContent" dangerouslySetInnerHTML={{ __html: documentToHtmlString(settings.homePageInfoText).replace(/\n/g, `</br>`) }}></div>
+          </Col>
+        </Row>
+      </Container>
     </LayoutTwo>
   );
 };
 
 const mapStateToProps = (state) => {
-  const products = state.productData;
+  const settings = state.settingsData;
   return {
-    products: products,
+    settings: settings,
   };
 };
 

@@ -7,10 +7,10 @@ const ImageSliderThree = ({ imageSliderData }) => {
     slidesPerView: 4,
     spaceBetween: 30,
     grabCursor: true,
-    // autoplay: {
-    //   delay: 5000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
 
     breakpoints: {
       1024: {

@@ -27,14 +27,6 @@ const CustomNavigation = () => {
                 </li>
                 <li>
                     <Link
-                        href="/par-mums"
-                        as={process.env.PUBLIC_URL + "/par-mums"}
-                    >
-                        <a>Par mums</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link
                         href="/apmaksa-piegade"
                         as={process.env.PUBLIC_URL + "/apmaksa-piegade"}
                     >

@@ -49,86 +49,9 @@ const ProductGrid = ({
               </a>
             </Link>
             <div className="product-grid__floating-badges">
-              {product.discount && product.discount > 0 ? (
-                <span className="onsale">-{product.discount}%</span>
-              ) : (
-                ""
-              )}
-              {product.new ? <span className="hot">New</span> : ""}
-              {product.stock === 0 ? (
-                <span className="out-of-stock">out</span>
-              ) : (
-                ""
-              )}
+              {!product.isAvailable ? <span className="out-of-stock">Nav</span> : ""}
             </div>
-            <div className="product-grid__floating-icons">
-              {/* add to wishlist */}
-              <Tooltip
-                title={
-                  wishlistItem !== undefined
-                    ? "Added to wishlist"
-                    : "Add to wishlist"
-                }
-                position="left"
-                trigger="mouseenter"
-                animation="shift"
-                arrow={true}
-                duration={200}
-              >
-                <button
-                  onClick={
-                    wishlistItem !== undefined
-                      ? () => deleteFromWishlist(product, addToast)
-                      : () => addToWishlist(product, addToast)
-                  }
-                  className={wishlistItem !== undefined ? "active" : ""}
-                >
-                  <IoIosHeartEmpty />
-                </button>
-              </Tooltip>
 
-              {/* add to compare */}
-              <Tooltip
-                title={
-                  compareItem !== undefined
-                    ? "Added to compare"
-                    : "Add to compare"
-                }
-                position="left"
-                trigger="mouseenter"
-                animation="shift"
-                arrow={true}
-                duration={200}
-              >
-                <button
-                  onClick={
-                    compareItem !== undefined
-                      ? () => deleteFromCompare(product, addToast)
-                      : () => addToCompare(product, addToast)
-                  }
-                  className={compareItem !== undefined ? "active" : ""}
-                >
-                  <IoIosShuffle />
-                </button>
-              </Tooltip>
-
-              {/* quick view */}
-              <Tooltip
-                title="Quick view"
-                position="left"
-                trigger="mouseenter"
-                animation="shift"
-                arrow={true}
-                duration={200}
-              >
-                <button
-                  onClick={() => setModalShow(true)}
-                  className="d-none d-lg-block"
-                >
-                  <IoIosSearch />
-                </button>
-              </Tooltip>
-            </div>
           </div>
 
           {/*=======  single product content  =======*/}

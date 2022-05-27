@@ -13,7 +13,7 @@ const ProductDescription = ({
   addToast,
   addToCart,
 }) => {
-  const [quantityCount, setQuantityCount] = useState(1);
+  const [quantityCount, setQuantityCount] = useState(product.isAvailable ? 1 : 0);
 
   const productCartQty = getProductCartQuantity(
     cartItems,
@@ -77,6 +77,7 @@ const ProductDescription = ({
                 setQuantityCount(quantityCount > 1 ? quantityCount - 1 : 1)
               }
               className="qtybutton"
+              disabled={!product.isAvailable}
             >
               -
             </button>
@@ -93,6 +94,7 @@ const ProductDescription = ({
                 )
               }
               className="qtybutton"
+              disabled={!product.isAvailable}
             >
               +
             </button>
@@ -112,7 +114,7 @@ const ProductDescription = ({
             disabled={!product.isAvailable}
             className="lezada-button lezada-button--medium product-content__cart space-mr--10"
           >
-            Pievienot grozam
+            {product.isAvailable ? "Pievienot grozam" : "Nav pieejams"}
           </button>
         </div>
 

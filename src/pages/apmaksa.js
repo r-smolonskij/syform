@@ -190,7 +190,7 @@ const Checkout = ({ cartItems, parcelList, deleteAllFromCart }) => {
                                                             <input value={formData.company} onChange={(e) => onChangeField("company", e)} type="text" name="company" placeholder="Ievadiet uzņēmumu" />
                                                         </div>
                                                         <div className="col-md-6 col-12 space-mb--20">
-                                                            <label>Pakomāts</label>
+                                                            <label>Omniva pakomāts</label>
                                                             <select value={formData.parcel} onChange={(e) => onChangeField("parcel", e)}>
                                                                 <option>Izvēlēties pakomātu</option>
                                                                 {

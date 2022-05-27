@@ -50,19 +50,8 @@ const ProductGridWrapper = ({
             <ProductGridList
               key={product.id}
               product={product}
-              discountedPrice={discountedPrice}
               productPrice={productPrice}
-              cartItem={cartItem}
-              wishlistItem={wishlistItem}
-              compareItem={compareItem}
               bottomSpace={bottomSpace}
-              addToCart={addToCart}
-              addToWishlist={addToWishlist}
-              deleteFromWishlist={deleteFromWishlist}
-              addToCompare={addToCompare}
-              deleteFromCompare={deleteFromCompare}
-              addToast={addToast}
-              cartItems={cartItems}
             />
           );
         })}
