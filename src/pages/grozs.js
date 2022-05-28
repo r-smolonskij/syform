@@ -33,7 +33,7 @@ const Cart = ({
             {/* cart content */}
             <div className="cart-content space-mt--r100 space-mb--r130">
                 <div className="about-title-container text-center">
-                    <h1 className="title space-mb--r100">
+                    <h1 className=" space-mb--r100">
                         Grozs
                     </h1>
                 </div>

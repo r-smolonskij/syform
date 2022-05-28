@@ -14,9 +14,9 @@ const Contacts = ({ settings }) => {
         <LayoutTwo>
             <div className="element-wrapper space-mt--r100 space-mb--r100">
                 <div className="about-title-container text-center">
-                    <h2 className="title space-mb--r100">
+                    <h1 className="space-mb--r100">
                         Kontakti
-                    </h2>
+                    </h1>
                 </div>
                 <Container>
                     <Row className="justify-content-center ">

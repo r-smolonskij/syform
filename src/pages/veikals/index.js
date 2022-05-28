@@ -87,7 +87,7 @@ const CustomShop = ({ products, categories }) => {
             <div className="about-content  space-mt--r100 space-mb--r100">
                 <div className="section-title-container space-mb--40">
                     <div className="about-title-container text-center">
-                        <h1 className="title">
+                        <h1>
                             Veikals
                         </h1>
                         {categoryName && <h4 className="space-mb--40">Kategorija: "{categoryName}"</h4>}

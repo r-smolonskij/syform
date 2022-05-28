@@ -159,94 +159,102 @@ const Checkout = ({ cartItems, parcelList, deleteAllFromCart }) => {
                 </Container>}
                 {showContent && <Container>
                     {cartItems && cartItems.length >= 1 &&
-                        <Row>
-                            <Col>
-                                <div className="lezada-form">
-                                    <form id="checkoutForm" className="checkout-form" onSubmit={submitForm}>
-                                        <div className="row row-40">
-                                            <div className="col-lg-7 space-mb--20">
-                                                {/* Billing Address */}
-                                                <div id="billing-form" className="space-mb--40">
-                                                    <h4 className="checkout-title">Kontaktinformācija</h4>
+                        <div>
+                            <div className="about-title-container text-center">
+                                <h1 className=" space-mb--r100">
+                                    Apmaksa
+                                </h1>
+                            </div>
+                            <Row>
+                                <Col>
+                                    <div className="lezada-form order">
+                                        <form id="checkoutForm" className="checkout-form" onSubmit={submitForm}>
+                                            <div className="row row-40">
+                                                <div className="col-lg-7 space-mb--20 order-lg-0 order-1">
+                                                    {/* Billing Address */}
+                                                    <div id="billing-form" className="space-mb--40">
+                                                        <h4 className="checkout-title">Kontaktinformācija</h4>
+                                                        <div className="row">
+                                                            <div className="col-md-6 col-12 space-mb--20">
+                                                                <label>Vārds*</label>
+                                                                <input value={formData.name} onChange={(e) => onChangeField("name", e)} type="text" name="name" required placeholder="Ievadiet vārdu" />
+                                                            </div>
+                                                            <div className="col-md-6 col-12 space-mb--20">
+                                                                <label>Uzvārds*</label>
+                                                                <input value={formData.surname} onChange={(e) => onChangeField("surname", e)} type="text" name="surname" required placeholder="Ievadiet uzvārdu" />
+                                                            </div>
+                                                            <div className="col-md-6 col-12 space-mb--20">
+                                                                <label>E-pasts*</label>
+                                                                <input value={formData.email} onChange={(e) => onChangeField("email", e)} type="email" name="email" required placeholder="Ievadiet e-pastu" />
+                                                            </div>
+                                                            <div className="col-md-6 col-12 space-mb--20">
+                                                                <label>Telefons*</label>
+                                                                <input value={formData.phone} onChange={(e) => onChangeField("phone", e)} type="text" name="phone" required placeholder="Ievadiet telefonu" />
+                                                            </div>
+                                                            <div className="col-md-6 col-12 space-mb--20">
+                                                                <label>Uzņēmums</label>
+                                                                <input value={formData.company} onChange={(e) => onChangeField("company", e)} type="text" name="company" placeholder="Ievadiet uzņēmumu" />
+                                                            </div>
+                                                            <div className="col-md-6 col-12 space-mb--20">
+                                                                <label>Omniva pakomāts</label>
+                                                                <select value={formData.parcel} onChange={(e) => onChangeField("parcel", e)}>
+                                                                    <option>Izvēlēties pakomātu</option>
+                                                                    {
+                                                                        latvianParcelList.map((parcel, index) => <option key={index}>{parcel.NAME}</option>)
+                                                                    }
+                                                                </select>
+                                                            </div>
+                                                            <div className="col-12 space-mb--20">
+                                                                <label>Komentārs</label>
+                                                                <textarea
+                                                                    cols={30}
+                                                                    rows={10}
+                                                                    placeholder="Komentārs"
+                                                                    name="comment"
+                                                                    id="contactMessage"
+                                                                    onChange={(e) => onChangeField("comment", e)}
+                                                                    value={formData.comment}
+                                                                />
+                                                            </div>
+                                                            <input type="submit" value="Pabeigt pasūtījumu" className=" col-12 lezada-button lezada-button--medium space-mt--20" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-5  order-lg-1 order-0">
                                                     <div className="row">
-                                                        <div className="col-md-6 col-12 space-mb--20">
-                                                            <label>Vārds*</label>
-                                                            <input value={formData.name} onChange={(e) => onChangeField("name", e)} type="text" name="name" required placeholder="Ievadiet vārdu" />
-                                                        </div>
-                                                        <div className="col-md-6 col-12 space-mb--20">
-                                                            <label>Uzvārds*</label>
-                                                            <input value={formData.surname} onChange={(e) => onChangeField("surname", e)} type="text" name="surname" required placeholder="Ievadiet uzvārdu" />
-                                                        </div>
-                                                        <div className="col-md-6 col-12 space-mb--20">
-                                                            <label>E-pasts*</label>
-                                                            <input value={formData.email} onChange={(e) => onChangeField("email", e)} type="email" name="email" required placeholder="Ievadiet e-pastu" />
-                                                        </div>
-                                                        <div className="col-md-6 col-12 space-mb--20">
-                                                            <label>Telefons*</label>
-                                                            <input value={formData.phone} onChange={(e) => onChangeField("phone", e)} type="text" name="phone" required placeholder="Ievadiet telefonu" />
-                                                        </div>
-                                                        <div className="col-md-6 col-12 space-mb--20">
-                                                            <label>Uzņēmums</label>
-                                                            <input value={formData.company} onChange={(e) => onChangeField("company", e)} type="text" name="company" placeholder="Ievadiet uzņēmumu" />
-                                                        </div>
-                                                        <div className="col-md-6 col-12 space-mb--20">
-                                                            <label>Omniva pakomāts</label>
-                                                            <select value={formData.parcel} onChange={(e) => onChangeField("parcel", e)}>
-                                                                <option>Izvēlēties pakomātu</option>
-                                                                {
-                                                                    latvianParcelList.map((parcel, index) => <option key={index}>{parcel.NAME}</option>)
-                                                                }
-                                                            </select>
-                                                        </div>
-                                                        <div className="col-12 space-mb--20">
-                                                            <label>Komentārs</label>
-                                                            <textarea
-                                                                cols={30}
-                                                                rows={10}
-                                                                placeholder="Komentārs"
-                                                                name="comment"
-                                                                id="contactMessage"
-                                                                onChange={(e) => onChangeField("comment", e)}
-                                                                value={formData.comment}
-                                                            />
-                                                        </div>
-                                                        <input type="submit" value="Pabeigt pasūtījumu" className=" col-12 lezada-button lezada-button--medium space-mt--20" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-lg-5">
-                                                <div className="row">
-                                                    {/* Cart Total */}
-                                                    <div className="col-12 space-mb--50">
-                                                        <div className="checkout-cart-total">
-                                                            <Row className="mb-3">
-                                                                <Col sm={9}><h4>Produkts</h4> </Col>
-                                                                <Col sm={3}><h4>Cena</h4> </Col>
-                                                            </Row>
-                                                            {cartItems.map((product, i) => {
-                                                                cartTotalPrice +=
-                                                                    product.price * product.quantity;
-                                                                return (
-                                                                    <Row key={i} className="mb-2">
-                                                                        <Col sm={9}> {product.name} X {product.quantity}{" "}</Col>
-                                                                        <Col sm={3}>{product.price.toFixed(2)}€</Col>
-                                                                    </Row>
-                                                                );
-                                                            })}
-                                                            <h4>
-                                                                Summa kopā:{" "}
-                                                                <span>{cartTotalPrice.toFixed(2)}€</span>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
+                                                        {/* Cart Total */}
+                                                        <div className="col-12 space-mb--50">
+                                                            <div className="checkout-cart-total">
+                                                                <Row className="mb-3">
+                                                                    <Col sm={9}><h4>Produkts</h4> </Col>
+                                                                    <Col sm={3}><h4>Cena</h4> </Col>
+                                                                </Row>
+                                                                {cartItems.map((product, i) => {
+                                                                    cartTotalPrice +=
+                                                                        product.price * product.quantity;
+                                                                    return (
+                                                                        <Row key={i} className="mb-2">
+                                                                            <Col sm={9}> {product.name} X {product.quantity}{" "}</Col>
+                                                                            <Col sm={3}>{product.price.toFixed(2)}€</Col>
+                                                                        </Row>
+                                                                    );
+                                                                })}
 
+                                                                <Row>
+                                                                    <Col sm={9}><h4>Summa kopā:</h4></Col>
+                                                                    <Col sm={3}><h4>{cartTotalPrice.toFixed(2)}€</h4></Col>
+                                                                </Row>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </Col>
-                        </Row>
+                                        </form>
+                                    </div>
+                                </Col>
+                            </Row>
+                        </div>
                     }
                 </Container>}
             </div>
