@@ -19,7 +19,7 @@ const Contacts = ({ settings }) => {
                     </h1>
                 </div>
                 <Container>
-                    <Row className="justify-content-center ">
+                    <Row className="justify-content-around ">
                         <Col lg={4} md={5}>
                             <div className="icon-box icon-box--color-center icon-box--color-center--blue">
                                 <div className="icon-box--color-center__icon icon-box--color-center--blue__icon">
