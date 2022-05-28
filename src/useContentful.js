@@ -73,6 +73,8 @@ const useContentful = () => {
                 deliveryAndPayment: entryFields.deliveryAndPayment || null,
                 homeSliderPhotos: sliderPhotos || [],
                 homePageInfoText: entryFields.homePageInfoText || null,
+                phoneNumber: entryFields.phoneNumber || null,
+                email: entryFields.email || null,
             }
             return sanitizedObject;
         } catch (error) {

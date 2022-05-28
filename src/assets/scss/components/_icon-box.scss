@@ -9,13 +9,19 @@
 .icon-box {
   display: flex;
   align-items: center;
+  border-radius: 50%;
+
+  
+@include respond(large-mobile) {
+  border-radius: 0%;
+}
 
   &--feature-icon {
     align-items: flex-start;
 
 
     &__icon {
-      font-size: 30px;
+      font-size: 60px;
 
       color: $grey--eleven;
 

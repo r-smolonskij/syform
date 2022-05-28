@@ -33,6 +33,14 @@ const CustomNavigation = () => {
                         <a>Apmaksa/Piegāde</a>
                     </Link>
                 </li>
+                <li>
+                    <Link
+                        href="/kontakti"
+                        as={process.env.PUBLIC_URL + "/kontakti"}
+                    >
+                        <a>Kontakti</a>
+                    </Link>
+                </li>
 
             </ul>
         </nav>

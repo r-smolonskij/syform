@@ -67,6 +67,11 @@ const MobileMenuNav = ({ getActiveStatus }) => {
           </Link>
         </li>
         <li className="menu-item-has-children">
+          <Link href="/kontakti" as={process.env.PUBLIC_URL + "/kontakti"}>
+            <a>Kontakti</a>
+          </Link>
+        </li>
+        <li className="menu-item-has-children">
           <Link href="/grozs" as={process.env.PUBLIC_URL + "/grozs"}>
             <a>Grozs <IoIosCart /> </a>
           </Link>
