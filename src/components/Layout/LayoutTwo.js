@@ -8,11 +8,8 @@ const LayoutTwo = ({ children, aboutOverlay, footerBgClass }) => {
       <HeaderOne aboutOverlay={aboutOverlay} />
       <div className="page-wrap">
         {children}
-
       </div>
       <FooterTwo footerBgClass={footerBgClass} />
-      {/* <FooterOne footerBgClass={footerBgClass} /> */}
-
     </Fragment>
   );
 };

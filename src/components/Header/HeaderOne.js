@@ -6,8 +6,6 @@ import {
   IoIosCart,
   IoIosMenu
 } from "react-icons/io";
-import AboutOverlay from "./elements/AboutOverlay";
-import SearchOverlay from "./elements/SearchOverlay";
 import CartOverlay from "./elements/CartOverlay";
 import MobileMenu from "./elements/MobileMenu";
 import CustomNavigation from "./elements/CustomNavigation";
@@ -16,10 +14,7 @@ const HeaderOne = ({ aboutOverlay, cartItems, settings }) => {
   const [scroll, setScroll] = useState(0);
   const [headerTop, setHeaderTop] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
-  const [offCanvasAboutActive, setOffCanvasAboutActive] = useState(false);
-  const [offCanvasSearchActive, setOffCanvasSearchActive] = useState(false);
   const [offCanvasCartActive, setOffCanvasCartActive] = useState(false);
-  const [offCanvasWishlistActive, setOffCanvasWishlistActive] = useState(false);
   const [offCanvasMobileMenuActive, setOffCanvasMobileMenuActive] = useState(
     false
   );
@@ -117,21 +112,6 @@ const HeaderOne = ({ aboutOverlay, cartItems, settings }) => {
           </div>
         </Container>
       </header>
-
-      {/* about overlay */}
-      {aboutOverlay === false ? (
-        ""
-      ) : (
-        <AboutOverlay
-          activeStatus={offCanvasAboutActive}
-          getActiveStatus={setOffCanvasAboutActive}
-        />
-      )}
-      {/* search overlay */}
-      <SearchOverlay
-        activeStatus={offCanvasSearchActive}
-        getActiveStatus={setOffCanvasSearchActive}
-      />
 
       {/* cart overlay */}
       <CartOverlay

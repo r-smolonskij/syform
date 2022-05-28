@@ -1,6 +1,4 @@
 import Swiper from "react-id-swiper";
-import Link from "next/link";
-import { Container } from "react-bootstrap";
 
 const HeroSliderOne = ({ sliderData }) => {
   const params = {
@@ -42,7 +40,7 @@ const HeroSliderOne = ({ sliderData }) => {
                     <img
                       src={image}
                       className="img-fluid"
-                      alt=""
+                      alt="Syform Latvija"
                     />
                   </div>
                 </div>

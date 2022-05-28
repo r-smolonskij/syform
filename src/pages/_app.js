@@ -34,6 +34,7 @@ class MyApp extends App {
       <Fragment>
         <Head>
           <title>Syform Latvia</title>
+          <meta name="description" content="Syform Latvia, uztura bagātinātāji, vitamīni prfesionāliem un amatieru sportistiem."></meta>
           <link rel="icon" href={process.env.PUBLIC_URL + "/favicon.ico"} />
           <link
             href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"

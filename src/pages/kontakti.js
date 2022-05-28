@@ -1,10 +1,5 @@
-import Link from "next/link";
+
 import { LayoutTwo } from "../components/Layout";
-import { BreadcrumbOne } from "../components/Breadcrumb";
-import { SectionTitleThree } from "../components/SectionTitle";
-import {
-    CategoryGrid, CategoryGridTwo,
-} from "../components/Category";
 import { connect } from "react-redux";
 import { Col, Container, Row } from "react-bootstrap";
 import { IoIosMail, IoIosPhonePortrait } from "react-icons/io";
