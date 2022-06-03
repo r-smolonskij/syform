@@ -3,10 +3,16 @@ import _ from 'lodash'
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 
-const ShopSidebar = ({ categories, getSortParams }) => {
+const ShopSidebar = ({ categories,products, getSortParams }) => {
   const [activeCategory, setActiveCategory] = useState("all")
   const isActiveCategory = (value) => {
     return _.isEqual(value, activeCategory)
+  }
+
+  const showCategory = (categoryId) => {
+    console.log(products);
+    const filteredProducts = _.filter(products, product => _.isEqual(categoryId, product.categoryId));
+    return filteredProducts.length > 0;
   }
   return (
     <div className="shop-sidebar">
@@ -26,7 +32,7 @@ const ShopSidebar = ({ categories, getSortParams }) => {
               </button>
             </li>
             {categories.map((category, i) => {
-              return (
+              return showCategory(category.id) ?  (
                 <li key={i}>
                   <button
                     onClick={() => { getSortParams(category.id); setActiveCategory(category.id) }}
@@ -35,7 +41,7 @@ const ShopSidebar = ({ categories, getSortParams }) => {
                     {category.name}
                   </button>
                 </li>
-              );
+              ) : <></>;
             })}
           </ul>
         ) : (
@@ -50,14 +56,14 @@ const ShopSidebar = ({ categories, getSortParams }) => {
           <Row>
 
             <button
-              className={`lezada-button lezada-button--small mb-3`}
+              className={`lezada-button lezada-button--small  mb-3`}
               onClick={() => { getSortParams("all"); setActiveCategory("all") }}
             >
-              <p>Visas kategorijas</p>
+              Visas kategorijas
             </button>
             {
               categories.map((category, i) => {
-                return (
+                return showCategory(category.id) ? (
                   <Col key={i} xs={4} >
                     <button
                       className={`lezada-button lezada-button--small mb-3`}
@@ -66,7 +72,7 @@ const ShopSidebar = ({ categories, getSortParams }) => {
                       {category.name}
                     </button>
                   </Col>
-                );
+                ) : <></>;
               })
             }
           </Row>
@@ -77,7 +83,8 @@ const ShopSidebar = ({ categories, getSortParams }) => {
 };
 const mapStateToProps = (state) => {
   return {
-    categories: state.categoryData
+    categories: state.categoryData,
+    products: state.productData
   };
 };
 export default connect(mapStateToProps)(ShopSidebar);

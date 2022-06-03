@@ -111,7 +111,7 @@ const CustomShop = ({ products, categories }) => {
                                         {!kategorija && <Col
                                             lg={3}
                                             sm={12}
-                                            className="order-1 order-lg-1 "
+                                            className="order-1 order-lg-0 "
                                         >
                                             {/* shop sidebar */}
                                             <ShopSidebar
