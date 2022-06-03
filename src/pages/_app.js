@@ -7,7 +7,6 @@ import { ToastProvider } from "react-toast-notifications";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import fetchProducts from "../redux/actions/productActions";
-import products from "../data/products.json";
 import "../assets/scss/styles.scss";
 import Preloader from "../components/Preloader";
 import useContentful from "../useContentful";
@@ -24,7 +23,6 @@ class MyApp extends App {
     getCategories().then((response) => { props.reduxStore.dispatch(fetchCategories(response)); });
     getProducts().then((response) => { props.reduxStore.dispatch(fetchProducts(response)); });
     getSettings().then((response) => { props.reduxStore.dispatch(fetchSettings(response)); });
-
   }
 
   render() {

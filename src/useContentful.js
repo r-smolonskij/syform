@@ -3,8 +3,8 @@ import _ from 'lodash'
 const useContentful = () => {
 
     const client = createClient({
-        space: "zrrknwyvwh3r",
-        accessToken: "Kwfo4dmxc_wrP0E5kQoJ8ocnXix5ulb3mnf5xkYLvbY",
+        space: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         host: "cdn.contentful.com"
     })
 
@@ -22,7 +22,8 @@ const useContentful = () => {
                     categoryName: entryFields.category.fields.name || null,
                     description: entryFields.description || null,
                     image: entryFields.image.fields.file.url || null,
-                    ingredients: entryFields.ingredients || null,
+                    ingredientsText: entryFields.ingredientsText || null,
+                    ingredientsPhoto: entryFields.ingredientsPhoto.fields.file.url || null,
                     isAvailable: entryFields.isAvailable || null,
                     name: entryFields.name || null,
                     price: entryFields.price || null,

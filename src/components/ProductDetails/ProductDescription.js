@@ -122,10 +122,6 @@ const ProductDescription = ({
           <table>
             <tbody>
               <tr className="single-info">
-                <td className="title">Noliktavas numurs: </td>
-                <td className="value">{product.sku}</td>
-              </tr>
-              <tr className="single-info">
                 <td className="title">Kategorija: </td>
                 <td className="value">
 

@@ -16,9 +16,9 @@ const Contacts = ({ settings }) => {
                 <Container>
                     <Row className="justify-content-around ">
                         <Col lg={4} md={5}>
-                            <div className="icon-box icon-box--color-center icon-box--color-center--blue">
+                            <div className="icon-box icon-box--color-center ">
                                 <div className="icon-box--color-center__icon icon-box--color-center--blue__icon">
-                                    <IoIosMail size={60} />
+                                    <IoIosMail size={200} />
                                 </div>
                                 <div className="icon-box--color-center__content">
                                     <h2 className="title">E-pasts</h2>
@@ -27,9 +27,9 @@ const Contacts = ({ settings }) => {
                             </div>
                         </Col>
                         <Col lg={4} md={5}>
-                            <div className="icon-box icon-box--color-center icon-box--color-center--green">
+                            <div className="icon-box icon-box--color-center ">
                                 <div className="icon-box--color-center__icon icon-box--color-center--green__icon">
-                                    <IoIosPhonePortrait size={60} />
+                                    <IoIosPhonePortrait size={200} />
                                 </div>
                                 <div className="icon-box--color-center__content">
                                     <h2 className="title">Tālrunis</h2>

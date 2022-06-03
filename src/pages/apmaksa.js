@@ -8,7 +8,7 @@ import { deleteAllFromCart } from "../redux/actions/cartActions";
 import { useToasts } from "react-toast-notifications";
 import { IoMdCheckmarkCircleOutline, IoIosCloseCircleOutline } from "react-icons/io";
 import Link from "next/link";
-const Checkout = ({ cartItems, parcelList, deleteAllFromCart }) => {
+const Checkout = ({ cartItems, parcelList, settings, deleteAllFromCart }) => {
     let cartTotalPrice = 0;
     const latvianParcelList = parcelList.filter(parcel => parcel.A0_NAME === "LV");
     const { addToast } = useToasts();
@@ -63,7 +63,7 @@ const Checkout = ({ cartItems, parcelList, deleteAllFromCart }) => {
         })
         productsText += `\nKopējā summa: ${totalPrice.toFixed(2)}€\n`
 
-        fetch("https://formsubmit.co/ajax/syformlatvija@gmail.com", {
+        fetch(`https://formsubmit.co/ajax/${settings.email}`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -265,7 +265,8 @@ const Checkout = ({ cartItems, parcelList, deleteAllFromCart }) => {
 const mapStateToProps = (state) => {
     return {
         cartItems: state.cartData,
-        parcelList: pakomati
+        parcelList: pakomati,
+        settings: state.settingsData,
     };
 };
 

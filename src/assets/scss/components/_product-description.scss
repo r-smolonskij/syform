@@ -305,6 +305,13 @@
   }
 }
 
+.ingredients-img{
+  max-width: 60vw;
+  @include respond(extra-large-mobile) {
+    width: 90vw;
+  }
+}
+
 
 .product-description-tab {
   &__navigation {

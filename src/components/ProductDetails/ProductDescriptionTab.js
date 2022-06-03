@@ -22,7 +22,7 @@ const ProductDescriptionTab = ({ product }) => {
             </Nav.Link>
           </Nav.Item>
           }
-          {!_.isNil(product.ingredients) && <Nav.Item>
+          {(!_.isNil(product.ingredientsText) || !_.isNil(product.ingredientsPhoto)) && <Nav.Item>
             <Nav.Link eventKey="ingredients">
               Sastāvs
             </Nav.Link>
@@ -47,7 +47,16 @@ const ProductDescriptionTab = ({ product }) => {
           </Tab.Pane>
           <Tab.Pane eventKey="ingredients">
             <div className="product-description-tab__additional-info">
-              <div className="htmlContent" dangerouslySetInnerHTML={{ __html: documentToHtmlString(product.ingredients) }}></div>
+              <p>{product.ingredientsText}</p>
+              <div className="product-large-image-wrapper">
+                <div className="single-image text-center">
+                  <img
+                    src={product.ingredientsPhoto}
+                    className="ingredients-img"
+                    alt={product.name}
+                  />
+                </div>
+              </div>
             </div>
           </Tab.Pane>
         </Tab.Content>
