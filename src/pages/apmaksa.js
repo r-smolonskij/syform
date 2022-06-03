@@ -63,7 +63,7 @@ const Checkout = ({ cartItems, parcelList, deleteAllFromCart }) => {
         })
         productsText += `\nKopējā summa: ${totalPrice.toFixed(2)}€\n`
 
-        fetch("https://formsubmit.co/ajax/rusens@inbox.lv", {
+        fetch("https://formsubmit.co/ajax/syformlatvija@gmail.com", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
