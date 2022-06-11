@@ -12,6 +12,7 @@ import Preloader from "../components/Preloader";
 import useContentful from "../useContentful";
 import fetchCategories from "../redux/actions/categoryActions";
 import fetchSettings from "../redux/actions/settingsActions";
+import { updateCartProducts } from "../redux/actions/cartActions";
 
 class MyApp extends App {
 
@@ -21,8 +22,9 @@ class MyApp extends App {
     //loading products 
     const { getProducts, getCategories, getSettings } = useContentful();
     getCategories().then((response) => { props.reduxStore.dispatch(fetchCategories(response)); });
-    getProducts().then((response) => { props.reduxStore.dispatch(fetchProducts(response)); });
+    getProducts().then((response) => { props.reduxStore.dispatch(fetchProducts(response)); props.reduxStore.dispatch(updateCartProducts(response)); });
     getSettings().then((response) => { props.reduxStore.dispatch(fetchSettings(response)); });
+
   }
 
   render() {

@@ -16,25 +16,28 @@ const useContentful = () => {
             })
             const sanitizedEntries = [];
             entries.items.forEach(entry => {
-                const entryFields = entry.fields;
-                sanitizedEntries.push({
-                    categoryId: entryFields.category.fields.id || null,
-                    categoryName: entryFields.category.fields.name || null,
-                    description: entryFields.description || null,
-                    image: entryFields.image.fields.file.url || null,
-                    ingredientsText: entryFields.ingredientsText || null,
-                    ingredientsPhoto: entryFields.ingredientsPhoto.fields.file.url || null,
-                    isAvailable: entryFields.isAvailable || null,
-                    name: entryFields.name || null,
-                    price: entryFields.price || null,
-                    usageInfo: entryFields.usageInfo || null,
-                    id: entryFields.id,
-                    slug: entryFields.id
-                })
+                if (!_.isNil(entry)) {
+                    const entryFields = entry.fields;
+                    sanitizedEntries.push({
+                        categoryId: entryFields.category.fields.id || null,
+                        categoryName: entryFields.category.fields.name || null,
+                        description: entryFields.description || null,
+                        image: entryFields.image.fields.file.url || null,
+                        ingredientsText: entryFields.ingredientsText || null,
+                        ingredientsPhoto: entryFields.ingredientsPhoto.fields.file.url || null,
+                        isAvailable: entryFields.isAvailable || null,
+                        name: entryFields.name || null,
+                        price: entryFields.price || null,
+                        usageInfo: entryFields.usageInfo || null,
+                        id: entryFields.id,
+                        slug: entryFields.id
+                    })
+                }
+
             })
             return sanitizedEntries;
         } catch (error) {
-            confirm.error(`Error fetching products: ${error}`)
+            console.error(`Error fetching products: ${error}`)
         }
     };
 
@@ -55,7 +58,7 @@ const useContentful = () => {
             })
             return sanitizedEntries;
         } catch (error) {
-            confirm.error(`Error fetching categories: ${error}`)
+            console.error(`Error fetching categories: ${error}`)
         }
     };
 
@@ -79,7 +82,7 @@ const useContentful = () => {
             }
             return sanitizedObject;
         } catch (error) {
-            confirm.error(`Error fetching settings: ${error}`)
+            console.error(`Error fetching settings: ${error}`)
         }
     };
 

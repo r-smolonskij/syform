@@ -4,7 +4,9 @@ const initState = [];
 
 const productReducer = (state = initState, action) => {
   if (action.type === FETCH_PRODUCTS_SUCCESS) {
-    state = action.payload.slice(0);
+    if (action.payload) {
+      state = action.payload.slice(0);
+    }
     return state;
   }
 

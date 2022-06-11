@@ -4,7 +4,9 @@ const initState = [];
 
 const settingsReducer = (state = initState, action) => {
     if (action.type === FETCH_SETTINGS_SUCCESS) {
-        state = action.payload;
+        if (action.payload) {
+            state = action.payload;
+        }
         return state;
     }
 

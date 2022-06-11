@@ -2,6 +2,13 @@ export const ADD_TO_CART = "ADD_TO_CART";
 export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
 export const DELETE_FROM_CART = "DELETE_FROM_CART";
 export const DELETE_ALL_FROM_CART = "DELETE_ALL_FROM_CART";
+export const UPDATE_CART_PRODUCTS = "UPDATE_CART_PRODUCTS";
+
+export const updateCartProducts = (productsList) => {
+  return (dispatch) => {
+    dispatch({ type: UPDATE_CART_PRODUCTS, payload: productsList });
+  };
+};
 
 //add to cart
 export const addToCart = (
@@ -59,7 +66,6 @@ export const deleteFromCart = (item, addToast) => {
 export const deleteAllFromCart = addToast => {
   return dispatch => {
     if (addToast) {
-      console.log("John");
       addToast("Grozs iztīrīts!", {
         appearance: "error",
         autoDismiss: true

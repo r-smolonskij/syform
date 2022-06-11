@@ -108,7 +108,7 @@ const CustomShop = ({ products, categories }) => {
                             <div className="shop-page-content__body space-mt--r130 space-mb--r130">
                                 <Container>
                                     <Row>
-                                        {!kategorija && <Col
+                                        {(!kategorija && !_.isEmpty(sortedProducts)) && <Col
                                             lg={3}
                                             sm={12}
                                             className="order-1 order-lg-0 "

@@ -1,7 +1,5 @@
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
-import { IoIosStar, IoIosStarOutline } from "react-icons/io";
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import _ from 'lodash'
 
 const ProductDescriptionTab = ({ product }) => {

@@ -3,8 +3,10 @@ import {
   ADD_TO_CART,
   DECREASE_QUANTITY,
   DELETE_FROM_CART,
-  DELETE_ALL_FROM_CART
+  DELETE_ALL_FROM_CART,
+  UPDATE_CART_PRODUCTS
 } from "../actions/cartActions";
+import _ from 'lodash'
 
 const initState = [];
 
@@ -29,11 +31,11 @@ const cartReducer = (state = initState, action) => {
         return cartItems.map((item) =>
           item.cartItemId === cartItem.cartItemId
             ? {
-                ...item,
-                quantity: product.quantity
-                  ? item.quantity + product.quantity
-                  : item.quantity + 1
-              }
+              ...item,
+              quantity: product.quantity
+                ? item.quantity + product.quantity
+                : item.quantity + 1
+            }
             : item
         );
       }
@@ -75,13 +77,13 @@ const cartReducer = (state = initState, action) => {
         return cartItems.map((item) =>
           item.cartItemId === cartItem.cartItemId
             ? {
-                ...item,
-                quantity: product.quantity
-                  ? item.quantity + product.quantity
-                  : item.quantity + 1,
-                selectedProductColor: product.selectedProductColor,
-                selectedProductSize: product.selectedProductSize
-              }
+              ...item,
+              quantity: product.quantity
+                ? item.quantity + product.quantity
+                : item.quantity + 1,
+              selectedProductColor: product.selectedProductColor,
+              selectedProductSize: product.selectedProductSize
+            }
             : item
         );
       }
@@ -116,6 +118,25 @@ const cartReducer = (state = initState, action) => {
     return cartItems.filter((item) => {
       return false;
     });
+  }
+
+  if (action.type === UPDATE_CART_PRODUCTS) {
+    let newCartItems = [];
+    _.forEach(cartItems, item => {
+      const foundItem = _.find(action.payload, product => _.isEqual(product.id, item.id));
+      if (foundItem && foundItem.isAvailable) {
+        const itemCopy = { ...item };
+        itemCopy.categoryId = foundItem.categoryId;
+        itemCopy.categoryName = foundItem.categoryName;
+        itemCopy.description = foundItem.description;
+        itemCopy.image = foundItem.image;
+        itemCopy.name = foundItem.name;
+        itemCopy.price = foundItem.price;
+        itemCopy.usageInfo = foundItem.usageInfo;
+        newCartItems.push(itemCopy)
+      }
+    })
+    return [...newCartItems];
   }
 
   return state;
