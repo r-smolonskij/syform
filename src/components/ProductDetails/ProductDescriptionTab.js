@@ -3,9 +3,23 @@ import Nav from "react-bootstrap/Nav";
 import _ from 'lodash'
 
 const ProductDescriptionTab = ({ product }) => {
+
+  const getActiveDefaultKey = () => {
+    if (!_.isNil(product.description)) {
+      return "description";
+    }
+    else if (_.isNil(product.description) && !_.isNil(product.usageInfo)) {
+      return "usageInfo";
+    } else if (_.isNil(product.description) && _.isNil(product.usageInfo) && (!_.isNil(product.ingredientsText) || !_.isNil(product.ingredientsPhoto))) {
+      return "ingredients";
+    } else {
+      return "description";
+    }
+
+  }
   return (
     <div className="product-description-tab space-pt--r100 space-mt--r100 border-top--grey">
-      <Tab.Container defaultActiveKey="description">
+      <Tab.Container defaultActiveKey={getActiveDefaultKey()}>
         <Nav
           variant="pills"
           className="product-description-tab__navigation text-center justify-content-center space-mb--50"

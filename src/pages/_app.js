@@ -18,12 +18,11 @@ class MyApp extends App {
 
   constructor(props) {
     super(props);
-    this.persistor = persistStore(props.reduxStore);
-    //loading products 
+    this.persistor = persistStore(this.props.reduxStore);
     const { getProducts, getCategories, getSettings } = useContentful();
-    getCategories().then((response) => { props.reduxStore.dispatch(fetchCategories(response)); });
-    getProducts().then((response) => { props.reduxStore.dispatch(fetchProducts(response)); props.reduxStore.dispatch(updateCartProducts(response)); });
-    getSettings().then((response) => { props.reduxStore.dispatch(fetchSettings(response)); });
+    getCategories().then((response) => { this.props.reduxStore.dispatch(fetchCategories(response)); });
+    getProducts().then((response) => { this.props.reduxStore.dispatch(fetchProducts(response)); this.props.reduxStore.dispatch(updateCartProducts(response)); });
+    getSettings().then((response) => { this.props.reduxStore.dispatch(fetchSettings(response)); });
 
   }
 
